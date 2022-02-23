@@ -38,6 +38,7 @@ function($, emojione, blankImg, slice, css_class, emojioneSupportMode, invisible
         self.shortnames = options.shortnames;
         self.saveEmojisAs = options.saveEmojisAs;
         self.standalone = options.standalone;
+        self.preview = options.preview;
         self.emojiTemplate = '<img alt="{alt}" class="emojione' + (self.sprite ? '-{uni}" src="' + blankImg + '"/>' : 'emoji" src="{img}" crossorigin/>');
         self.emojiTemplateAlt = self.sprite ? '<i class="emojione-{uni}"/>' : '<img class="emojioneemoji" src="{img}" crossorigin/>';
         self.emojiBtnTemplate = '<i class="emojibtn" role="button" data-name="{name}" title="{friendlyName}">' + self.emojiTemplateAlt + '</i>';
@@ -210,7 +211,7 @@ function($, emojione, blankImg, slice, css_class, emojioneSupportMode, invisible
         calcButtonPosition.apply(self);
 
         // if in standalone mode and no value is set, initialise with a placeholder
-        if (self.standalone && !self.getText().length) {
+        if (self.standalone && self.preview && !self.getText().length) {
             var placeholder = $(source).data("emoji-placeholder") || options.emojiPlaceholder;
             self.setText(placeholder);
             editor.addClass("has-placeholder");

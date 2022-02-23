@@ -645,14 +645,6 @@
             min-height: 33px;
             position: relative;
             padding: 6px 42px 6px 6px;
-            &::before {
-                content: "";
-                position: absolute;
-                top: 4px;
-                left: 50%;
-                bottom: 4px;
-                border-left: 1px solid lighten($border-color, 10%);
-            }
             &.has-placeholder {
                 $_hack: inline-image-store(background, $standalone-placeholder);
                 //background-size: 12px auto;
